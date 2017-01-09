@@ -1,112 +1,253 @@
-{
-	"name": "Smalltalk",
-	"scopeName": "source.smalltalk",
-	"fileTypes": ["st"],
-	"patterns": [
-		{
-			"begin": "([a-zA-Z][a-zA-Z0-9]*)\\s*(subclass:)\\s*([a-zA-Z][a-zA-Z0-9]*)\\s*\\[",
-			"end": "\\]",
-			"patterns": [
-				{ "include": "#pragma" },
-				{
-					"match": "(([a-zA-Z][a-zA-Z0-9]*:)|[+\\-\\/\\\\*~<>=@%|&?!.,:;^]+)\\s*([a-zA-Z][a-zA-Z0-9]*)",
-					"captures": {
-						"1": { "name": "entity.name.function" },
-						"3": { "name": "variable.other" }
-					}
-				},
-				{
-					"match": "([a-zA-Z][a-zA-Z0-9]*)",
-					"name": "entity.name.function"
-				},
-				{ "include": "#block" },
-				{ "include": "#comment" }
-			],
-			"beginCaptures": {
-				"1": { "name": "entity.other.inherited-class" },
-				"2": { "name": "keyword.other" },
-				"3": { "name": "entity.name.type" }
-			}
-		},
-		{ "include": "#block-body" }
-	],
-	"repository": {
-		"comment": {
-			"begin": "\"",
-			"end": "\"",
-			"name": "comment.block"
-		},
-		"string": {
-			"begin": "'",
-			"end": "'",
-			"name": "string.quoted.double"
-		},
-		"symbol": {
-			"match": "#(([a-zA-Z][a-zA-Z0-9:]*)|[+\\-\\/\\\\*~<>=@%|&?!.,:;^]+)",
-			"name": "constant.language"
-		},
-		"symbol2": {
-			"begin": "#'",
-			"end": "'",
-			"name": "constant.language"
-		},
-		"character": {
-			"match": "\\$(<[0-F]+>|.)",
-			"name": "constants.character"
-		},
-		"number": {
-			"match": "(([0-9]{1,2}r)?[0-9A-F]+)",
-			"name": "constant.numeric"
-		},
-		"special-variable": {
-			"match": "true|false|nil|thisContext",
-			"name": "constant.language"
-		},
-		"variable": {
-			"match": "([a-zA-Z][a-zA-Z0-9]*)",
-			"name": "variable.other"
-		},
-		"selector": {
-			"match": "([a-zA-Z][a-zA-Z0-9]*:)|[+\\-\\/\\\\*~<>=@%|&?!.,:;^]+",
-			"name": "keyword.other"
-		},
-		"literal": {
-			"patterns": [
-				{ "include": "#character" },
-				{ "include": "#special-variable" },
-				{ "include": "#variable" },
-				{ "include": "#number" },
-				{ "include": "#symbol" },
-				{ "include": "#symbol2" },
-				{ "include": "#string" }
-			]
-		},
-		"block": {
-			"begin": "\\[",
-			"end": "\\]",
-			"patterns": [
-				{ "include": "#block-body" }
-			]
-		},
-		"block-body": {
-			"patterns": [
-				{ "include": "#pragma" },
-				{ "include": "#selector"},
-				{ "include": "#literal" },
-				{ "include": "#block"},
-				{ "include": "#comment" }
-			]
-		},
-		"pragma": {
-			"begin": "<([a-zA-Z][a-zA-Z0-9]*:)",
-			"end": ">",
-			"patterns": [
-				{ "include": "#literal" }
-			],
-			"captures": {
-				"1": { "name": "keyword.other" }
-			}
-		}
-	},
-	"uuid": "e42217b0-9451-4406-8697-4ab7a7b42aa9"
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>name</key>
+		<string>Smalltalk</string>
+		<key>scopeName</key>
+		<string>source.smalltalk</string>
+		<key>fileTypes</key>
+		<array>
+			<string>st</string>
+		</array>
+		<key>patterns</key>
+		<array>
+			<dict>
+				<key>begin</key>
+				<string>([a-zA-Z][a-zA-Z0-9]*)\s*(subclass:)\s*([a-zA-Z][a-zA-Z0-9]*)\s*\[</string>
+				<key>end</key>
+				<string>\]</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#pragma</string>
+					</dict>
+					<dict>
+						<key>match</key>
+						<string>(([a-zA-Z][a-zA-Z0-9]*:)|[+\-\/\\*~&lt;&gt;=@%|&amp;?!.,:;^]+)\s*([a-zA-Z][a-zA-Z0-9]*)</string>
+						<key>captures</key>
+						<dict>
+							<key>1</key>
+							<dict>
+								<key>name</key>
+								<string>entity.name.function</string>
+							</dict>
+							<key>3</key>
+							<dict>
+								<key>name</key>
+								<string>variable.other</string>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>match</key>
+						<string>([a-zA-Z][a-zA-Z0-9]*)</string>
+						<key>name</key>
+						<string>entity.name.function</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#block</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#comment</string>
+					</dict>
+				</array>
+				<key>beginCaptures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>entity.other.inherited-class</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>keyword.other</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.type</string>
+					</dict>
+				</dict>
+			</dict>
+			<dict>
+				<key>include</key>
+				<string>#block-body</string>
+			</dict>
+		</array>
+		<key>repository</key>
+		<dict>
+			<key>comment</key>
+			<dict>
+				<key>begin</key>
+				<string>"</string>
+				<key>end</key>
+				<string>"</string>
+				<key>name</key>
+				<string>comment.block</string>
+			</dict>
+			<key>string</key>
+			<dict>
+				<key>begin</key>
+				<string>'</string>
+				<key>end</key>
+				<string>'</string>
+				<key>name</key>
+				<string>string.quoted.double</string>
+			</dict>
+			<key>symbol</key>
+			<dict>
+				<key>match</key>
+				<string>#(([a-zA-Z][a-zA-Z0-9:]*)|[+\-\/\\*~&lt;&gt;=@%|&amp;?!.,:;^]+)</string>
+				<key>name</key>
+				<string>constant.language</string>
+			</dict>
+			<key>symbol2</key>
+			<dict>
+				<key>begin</key>
+				<string>#'</string>
+				<key>end</key>
+				<string>'</string>
+				<key>name</key>
+				<string>constant.language</string>
+			</dict>
+			<key>character</key>
+			<dict>
+				<key>match</key>
+				<string>\$(&lt;[0-F]+&gt;|.)</string>
+				<key>name</key>
+				<string>constants.character</string>
+			</dict>
+			<key>number</key>
+			<dict>
+				<key>match</key>
+				<string>(([0-9]{1,2}r)?[0-9A-F]+)</string>
+				<key>name</key>
+				<string>constant.numeric</string>
+			</dict>
+			<key>special-variable</key>
+			<dict>
+				<key>match</key>
+				<string>true|false|nil|thisContext</string>
+				<key>name</key>
+				<string>constant.language</string>
+			</dict>
+			<key>variable</key>
+			<dict>
+				<key>match</key>
+				<string>([a-zA-Z][a-zA-Z0-9]*)</string>
+				<key>name</key>
+				<string>variable.other</string>
+			</dict>
+			<key>selector</key>
+			<dict>
+				<key>match</key>
+				<string>([a-zA-Z][a-zA-Z0-9]*:)|[+\-\/\\*~&lt;&gt;=@%|&amp;?!.,:;^]+</string>
+				<key>name</key>
+				<string>keyword.other</string>
+			</dict>
+			<key>literal</key>
+			<dict>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#character</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#special-variable</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#variable</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#number</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#symbol</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#symbol2</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#string</string>
+					</dict>
+				</array>
+			</dict>
+			<key>block</key>
+			<dict>
+				<key>begin</key>
+				<string>\[</string>
+				<key>end</key>
+				<string>\]</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#block-body</string>
+					</dict>
+				</array>
+			</dict>
+			<key>block-body</key>
+			<dict>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#pragma</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#selector</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#literal</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#block</string>
+					</dict>
+					<dict>
+						<key>include</key>
+						<string>#comment</string>
+					</dict>
+				</array>
+			</dict>
+			<key>pragma</key>
+			<dict>
+				<key>begin</key>
+				<string>&lt;([a-zA-Z][a-zA-Z0-9]*:)</string>
+				<key>end</key>
+				<string>&gt;</string>
+				<key>patterns</key>
+				<array>
+					<dict>
+						<key>include</key>
+						<string>#literal</string>
+					</dict>
+				</array>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>keyword.other</string>
+					</dict>
+				</dict>
+			</dict>
+		</dict>
+		<key>uuid</key>
+		<string>e42217b0-9451-4406-8697-4ab7a7b42aa9</string>
+	</dict>
+</plist>
