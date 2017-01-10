@@ -1,9 +1,14 @@
-Smalltalk syntax for Sublime Text and TextMate
-==============================================
+Smalltalk syntax for Sublime Text
+=================================
 
-This syntax file can be converted to .tmLanguage using PackageDev 'Convert to PList'.
-Place the converted file in Packages/Smalltalk/Smalltalk.tmLanguage and reopen any .st file.
+Originally made by: [lm](https://github.com/lm/sublime-smalltalk-syntax)
 
-#### Update 2017.01.10
+Converted to ST3 by: [DJviolin](https://github.com/DJviolin/sublime-smalltalk-syntax)
 
-I cloned this repo and made it work with Sublime Text 3. Enjoy!
+#### Installation
+
+1. Install [Package Control](https://packagecontrol.io/installation) for Sublime Text 3
+2. Click on `Package Control: Add Repository` => then enter `https://github.com/DJviolin/sublime-smalltalk-syntax`
+3. Click on `Package Control: Install Package`
+4. Start to type `sublime-smalltalk-syntax`
+5. Enjoy!
