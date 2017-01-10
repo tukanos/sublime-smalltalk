@@ -2,14 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 	<dict>
+    <key>fileTypes</key>
+    <array>
+      <string>st</string>
+    </array>
+
 		<key>name</key>
 		<string>Smalltalk</string>
-		<key>scopeName</key>
-		<string>source.smalltalk</string>
-		<key>fileTypes</key>
-		<array>
-			<string>st</string>
-		</array>
+
 		<key>patterns</key>
 		<array>
 			<dict>
@@ -247,6 +247,8 @@
 				</dict>
 			</dict>
 		</dict>
+    <key>scopeName</key>
+    <string>source.smalltalk</string>
 		<key>uuid</key>
 		<string>e42217b0-9451-4406-8697-4ab7a7b42aa9</string>
 	</dict>
