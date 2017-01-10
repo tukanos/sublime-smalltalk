@@ -11,5 +11,5 @@ Converted to ST3 by: [DJviolin](https://github.com/DJviolin/sublime-smalltalk)
 2. Click on `Package Control: Add Repository`
 3. Enter `https://github.com/DJviolin/sublime-smalltalk`
 4. Click on `Package Control: Install Package`
-5. Start to type `sublime-smalltalk-syntax`
+5. Start to type `sublime-smalltalk`
 6. Enjoy!
