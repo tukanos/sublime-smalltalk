@@ -1,5 +1,5 @@
-Smalltalk syntax for Sublime Text
-=================================
+Smalltalk syntax for Sublime Text 3
+===================================
 
 Originally made by: [lm](https://github.com/lm/sublime-smalltalk-syntax)
 
